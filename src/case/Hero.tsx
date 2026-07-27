@@ -1,36 +1,39 @@
-import { CtaLink, Eyebrow } from './primitives'
+import { CtaLink, Label } from './primitives'
 
 /**
- * No entrance animation here on purpose: the h1 is the LCP element and the
- * house motion rules flag mount animations on static headings.
+ * No entrance animation: the h1 is the LCP element and the house motion rules
+ * flag mount animations on static headings.
+ *
+ * The one place the display face runs at full width and weight. Everything
+ * after this is quieter by design.
  */
 export function Hero() {
   return (
-    <section className="border-b border-line bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28 lg:py-32">
-        <Eyebrow className="text-navy">Unsolicited redesign · 2026</Eyebrow>
+    <section className="border-b border-hair">
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+        <Label className="text-redline">Unsolicited redesign · 2026</Label>
 
-        <h1 className="mt-6 max-w-[16ch] text-display font-extrabold text-balance text-ink">
+        <h1 className="font-display-wide mt-7 max-w-[15ch] text-display text-balance text-noir">
           An honest booking flow that still sells.
         </h1>
 
-        <p className="mt-8 max-w-[54ch] text-xl leading-relaxed text-body md:text-2xl md:leading-relaxed">
+        <p className="mt-9 max-w-[46ch] text-xl leading-snug text-graphite md:text-2xl md:leading-snug">
           Ryanair’s checkout is a masterclass in dark patterns. I rebuilt it without
           them — and kept every place the airline actually makes money. This is a
           working prototype, not a mockup.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <CtaLink to="/book" variant="primary" size="lg">Try the flow →</CtaLink>
+        <div className="mt-11 flex flex-wrap items-center gap-3">
+          <CtaLink to="/book" variant="solid" size="lg">Try the flow →</CtaLink>
           <a
-            href="#problem"
-            className="inline-flex items-center rounded-md px-4 py-4 text-base font-semibold text-navy underline decoration-navy/30 underline-offset-[6px] transition-colors duration-200 hover:decoration-navy"
+            href="#exhibits"
+            className="inline-flex items-center px-6 py-4 text-base font-semibold text-noir underline decoration-noir/25 underline-offset-[6px] transition-colors duration-200 hover:decoration-noir"
           >
-            Read the reasoning
+            See the evidence
           </a>
         </div>
 
-        <p className="mt-14 max-w-[62ch] text-xs leading-relaxed text-body">
+        <p className="mt-16 max-w-[62ch] font-mono text-[0.6875rem] leading-relaxed text-graphite">
           Unofficial concept by Vitalina Nikulina. Not affiliated with or endorsed by
           Ryanair. Prices are illustrative.
         </p>

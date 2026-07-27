@@ -3,7 +3,7 @@ import { CtaLink, P, Section } from './primitives'
 export function Colophon() {
   return (
     <Section id="colophon" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-      <h2 className="max-w-[14ch] text-h2 font-extrabold text-balance text-ink">
+      <h2 className="font-display-wide max-w-[14ch] text-h2 text-balance text-noir">
         What this is
       </h2>
 
@@ -18,7 +18,7 @@ export function Colophon() {
       </div>
 
       <div className="mt-12">
-        <CtaLink to="/book" variant="primary" size="lg">Try the flow →</CtaLink>
+        <CtaLink to="/book" variant="solid" size="lg">Try the flow →</CtaLink>
       </div>
     </Section>
   )

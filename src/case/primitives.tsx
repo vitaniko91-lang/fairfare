@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'motion/react'
-import { buttonVariants, type ButtonVariant } from '../components/buttonStyles'
 
 /**
  * One scroll reveal per section: whole-section fade + 20px rise, 0.6s ease-out,
@@ -26,36 +25,36 @@ export function Section({ id, className = '', children }: {
   )
 }
 
-/** Uppercase micro-label. Not a heading — pass `as` when it labels a block. */
-export function Eyebrow({ children, className = '' }: {
+/**
+ * Utility label. Monospace because on this page the mono face means "record" —
+ * exhibit numbers, pattern names, captions. My own prose is never mono.
+ */
+export function Label({ children, className = '' }: {
   children: ReactNode; className?: string
 }) {
   return (
-    <p className={`text-[0.6875rem] font-semibold uppercase tracking-[0.2em] ${className}`}>
-      {children}
-    </p>
+    <p className={`font-mono text-label uppercase ${className}`}>{children}</p>
   )
 }
 
 /** Ryanair's own words, quoted inline in my prose — never blended into it. */
 export function UiQuote({ children }: { children: ReactNode }) {
-  return <span className="font-semibold text-ink">{children}</span>
+  return <span className="font-mono text-[0.95em] text-noir">{children}</span>
 }
 
 /**
- * Ryanair's own words as a block exhibit. Straight quotes inside quoted UI
- * copy; curly quotes everywhere else on the page.
+ * Ryanair's own words as a block exhibit. Set in mono so quoted interface copy
+ * reads as a transcript rather than as my writing. Straight quotes inside the
+ * quotation; curly quotes everywhere else on the page.
  */
-export function UiQuoteBlock({ lines, accent = false }: {
-  lines: string[]; accent?: boolean
-}) {
+export function UiQuoteBlock({ lines }: { lines: string[] }) {
   return (
     <blockquote
       cite="https://www.ryanair.com/gb/en"
-      className={`border-l-[3px] pl-5 sm:pl-7 ${accent ? 'border-sun' : 'border-line'}`}
+      className="border-l-2 border-redline pl-5 sm:pl-6"
     >
       {lines.map(line => (
-        <p key={line} className="text-quote font-medium text-ink">{line}</p>
+        <p key={line} className="font-mono text-quote text-noir">{line}</p>
       ))}
     </blockquote>
   )
@@ -65,22 +64,32 @@ export function UiQuoteBlock({ lines, accent = false }: {
 export function P({ children, className = '' }: {
   children: ReactNode; className?: string
 }) {
-  return <p className={`max-w-[68ch] text-prose text-body ${className}`}>{children}</p>
+  return <p className={`max-w-[68ch] text-prose text-graphite ${className}`}>{children}</p>
 }
 
-/** A router Link wearing Button's variant colours. */
-export function CtaLink({ to, variant = 'navy', size = 'md', className = '', children }: {
+/** Emphasis inside prose — the claim, not decoration. */
+export function Strong({ children }: { children: ReactNode }) {
+  return <strong className="font-semibold text-noir">{children}</strong>
+}
+
+const cta = {
+  solid: 'bg-noir text-bone hover:bg-graphite',
+  outline: 'border border-noir/25 text-noir hover:border-noir',
+} as const
+
+/** A router Link styled for the case page's own world. */
+export function CtaLink({ to, variant = 'solid', size = 'md', className = '', children }: {
   to: string
-  variant?: ButtonVariant
+  variant?: keyof typeof cta
   size?: 'md' | 'lg'
   className?: string
   children: ReactNode
 }) {
-  const pad = size === 'lg' ? 'px-7 py-4 text-base' : 'px-6 py-3 text-sm'
+  const pad = size === 'lg' ? 'px-8 py-4 text-base' : 'px-6 py-3 text-sm'
   return (
     <Link
       to={to}
-      className={`inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-colors duration-200 ${pad} ${buttonVariants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 font-semibold transition-colors duration-200 ${pad} ${cta[variant]} ${className}`}
     >
       {children}
     </Link>

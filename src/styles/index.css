@@ -1,7 +1,14 @@
 @import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
 @import 'tailwindcss';
 
 @theme {
+  /* ------------------------------------------------------------------ */
+  /* PROTOTYPE (/book) — deliberately Ryanair's own world. The redesign  */
+  /* has to live inside their brand or the comparison isn't honest.      */
+  /* ------------------------------------------------------------------ */
   --font-sans: 'Instrument Sans Variable', system-ui, sans-serif;
   --color-ink: #0f1e3a;        /* headings on light */
   --color-body: #45536b;       /* body text ≥4.5:1 on paper */
@@ -13,29 +20,65 @@
   --color-ok: #1b7a4f;
   --color-err: #c4314b;
 
-  /* Editorial display sizes for the case page — bounded with clamp() so they
-     never fall below readable or overshoot on ultrawide. */
-  --text-display: clamp(2.5rem, 1.7rem + 3.4vw, 4.25rem);
-  --text-display--line-height: 1.03;
-  --text-display--letter-spacing: -0.035em;
+  /* ------------------------------------------------------------------ */
+  /* CASE PAGE (/) — its own world. The subject here isn't an airline,   */
+  /* it's an investigation: exhibits, quoted evidence, a verdict.        */
+  /*                                                                     */
+  /* THE RULE THAT CARRIES THE ARGUMENT: `redline` marks a dark pattern  */
+  /* and nothing else. It never decorates, never appears on an "after"   */
+  /* exhibit. Red on the left, clean on the right, all the way down —    */
+  /* the reader learns the claim before reading a word of it.            */
+  /* ------------------------------------------------------------------ */
+  --color-bone: #fbfaf8;       /* cool off-white ground — not cream */
+  --color-noir: #14161a;       /* near-black, cool cast — 17.4:1 on bone */
+  --color-graphite: #5b6068;   /* body copy — 6.1:1 on bone */
+  --color-redline: #d92b04;    /* the annotation red — 4.7:1 on bone */
+  --color-hair: #e4e2de;       /* hairlines */
 
-  --text-h2: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
-  --text-h2--line-height: 1.1;
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Display sizes, clamped so they never fall below readable or overshoot. */
+  --text-display: clamp(2.75rem, 1.6rem + 4.9vw, 6rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-h2: clamp(2rem, 1.45rem + 2.35vw, 3.25rem);
+  --text-h2--line-height: 1.02;
   --text-h2--letter-spacing: -0.025em;
 
-  --text-quote: clamp(1.25rem, 1.06rem + 0.8vw, 1.75rem);
-  --text-quote--line-height: 1.35;
-  --text-quote--letter-spacing: -0.012em;
+  --text-quote: clamp(1.125rem, 0.98rem + 0.62vw, 1.5rem);
+  --text-quote--line-height: 1.45;
+  --text-quote--letter-spacing: -0.005em;
 
-  --text-pull: clamp(1.75rem, 1.15rem + 2.6vw, 3.25rem);
-  --text-pull--line-height: 1.12;
+  --text-pull: clamp(1.875rem, 1.2rem + 2.9vw, 3.5rem);
+  --text-pull--line-height: 1.06;
   --text-pull--letter-spacing: -0.03em;
 
   --text-prose: 1.0625rem;
   --text-prose--line-height: 1.7;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.14em;
 }
 
 html { scroll-behavior: smooth; }
 body { @apply bg-paper text-body font-sans antialiased; }
-:focus-visible { outline: 2px solid var(--color-navy); outline-offset: 2px; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* The case page owns the whole viewport background, so it sets its own ground
+   rather than inheriting the prototype's. */
+@utility case-root {
+  background-color: var(--color-bone);
+  color: var(--color-graphite);
+}
+
+/* Archivo carries a width axis; the display face is the expanded cut. Set as a
+   utility so the axis value lives in one place instead of on every heading. */
+@utility font-display-wide {
+  font-family: var(--font-display);
+  font-stretch: 118%;
+  font-weight: 800;
+}

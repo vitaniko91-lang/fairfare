@@ -2,12 +2,12 @@ import { P, Section } from './primitives'
 
 export function Problem() {
   return (
-    <Section id="problem" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-      <h2 className="max-w-[18ch] text-h2 font-extrabold text-balance text-ink">
+    <Section id="problem" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <h2 className="font-display-wide max-w-[17ch] text-h2 text-balance text-noir">
         Dark patterns are a loan against trust.
       </h2>
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-5">
         <P>
           They work. That’s the uncomfortable part — scarcity badges, pre-ticked boxes
           and guilt-framed buttons all move numbers this quarter. The cost lands later,
@@ -20,12 +20,12 @@ export function Problem() {
         </P>
       </div>
 
-      {/* The pivot of the whole case — the one place yellow is allowed to mark
-          something that isn't a button. */}
-      <figure className="mt-14 mb-14 max-w-3xl md:mt-16 md:mb-16">
-        <span aria-hidden="true" className="block h-1 w-16 bg-sun" />
-        <blockquote className="mt-7">
-          <p className="text-pull font-extrabold text-balance text-ink">
+      {/* The pivot of the case. Red is allowed here because the question is the
+          indictment — it is the one non-exhibit place the accent appears. */}
+      <figure className="mt-12 mb-12 max-w-3xl md:mt-14 md:mb-14">
+        <span aria-hidden="true" className="block h-0.5 w-14 bg-redline" />
+        <blockquote className="mt-6">
+          <p className="font-display-wide text-pull text-balance text-noir">
             Can you remove the manipulation and keep the revenue?
           </p>
         </blockquote>

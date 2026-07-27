@@ -1,4 +1,4 @@
-import { Eyebrow, Section } from './primitives'
+import { Label, Section } from './primitives'
 
 const PRINCIPLES = [
   {
@@ -31,21 +31,21 @@ const PRINCIPLES = [
 /** The page's single inverted band — the hinge between the audit and the rebuild. */
 export function Principles() {
   return (
-    <Section id="principles" className="bg-ink">
+    <Section id="principles" className="bg-noir">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <Eyebrow className="text-sun">Principles</Eyebrow>
-        <h2 className="mt-5 max-w-[18ch] text-h2 font-extrabold text-balance text-white">
+        <Label className="text-bone/75">Principles</Label>
+        <h2 className="font-display-wide mt-5 max-w-[18ch] text-h2 text-balance text-bone">
           Five rules I designed against.
         </h2>
 
         <ol className="mt-14 grid gap-x-10 gap-y-12 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
           {PRINCIPLES.map(p => (
-            <li key={p.n} className="border-t border-white/20 pt-6">
-              <p className="text-sm font-bold tabular-nums text-sun">{p.n}</p>
-              <h3 className="mt-3 max-w-[20ch] text-xl font-bold text-balance text-white">
+            <li key={p.n} className="border-t border-bone/25 pt-6">
+              <p className="font-mono text-label tabular-nums text-bone/75">{p.n}</p>
+              <h3 className="mt-4 max-w-[20ch] text-xl font-semibold text-balance text-bone">
                 {p.title}
               </h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-white/75">
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-bone/70">
                 {p.body}
               </p>
             </li>

@@ -11,9 +11,9 @@ const ROWS = [
 
 export function Business() {
   return (
-    <Section id="business" className="border-y border-line bg-white">
+    <Section id="business" className="border-y border-hair bg-white/60">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <h2 className="max-w-[20ch] text-h2 font-extrabold text-balance text-ink">
+        <h2 className="font-display-wide max-w-[20ch] text-h2 text-balance text-noir">
           Nothing was removed from the business.
         </h2>
 
@@ -30,28 +30,28 @@ export function Business() {
               and what changed about how it is presented.
             </caption>
             <thead>
-              <tr className="border-b border-ink/20">
-                <th scope="col" className="py-3 pr-6 text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-body">
+              <tr className="border-b border-noir/20">
+                <th scope="col" className="py-3 pr-6 font-mono text-label uppercase text-graphite">
                   Selling moment
                 </th>
-                <th scope="col" className="py-3 pr-6 text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-body">
+                <th scope="col" className="py-3 pr-6 font-mono text-label uppercase text-graphite">
                   Kept?
                 </th>
-                <th scope="col" className="py-3 text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-body">
+                <th scope="col" className="py-3 font-mono text-label uppercase text-graphite">
                   What changed
                 </th>
               </tr>
             </thead>
             <tbody>
               {ROWS.map(([moment, changed]) => (
-                <tr key={moment} className="border-b border-line align-top">
-                  <th scope="row" className="py-5 pr-6 text-[0.9375rem] font-semibold text-ink">
+                <tr key={moment} className="border-b border-hair align-top">
+                  <th scope="row" className="py-5 pr-6 text-[0.9375rem] font-semibold text-noir">
                     {moment}
                   </th>
                   <td className="py-5 pr-6 text-[0.9375rem] font-semibold whitespace-nowrap text-ok">
                     Kept
                   </td>
-                  <td className="py-5 text-[0.9375rem] leading-relaxed text-body">
+                  <td className="py-5 text-[0.9375rem] leading-relaxed text-graphite">
                     {changed}
                   </td>
                 </tr>
