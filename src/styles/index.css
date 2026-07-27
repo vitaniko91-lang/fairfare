@@ -12,6 +12,27 @@
   --color-line: #e3e7ef;       /* borders */
   --color-ok: #1b7a4f;
   --color-err: #c4314b;
+
+  /* Editorial display sizes for the case page — bounded with clamp() so they
+     never fall below readable or overshoot on ultrawide. */
+  --text-display: clamp(2.5rem, 1.7rem + 3.4vw, 4.25rem);
+  --text-display--line-height: 1.03;
+  --text-display--letter-spacing: -0.035em;
+
+  --text-h2: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.025em;
+
+  --text-quote: clamp(1.25rem, 1.06rem + 0.8vw, 1.75rem);
+  --text-quote--line-height: 1.35;
+  --text-quote--letter-spacing: -0.012em;
+
+  --text-pull: clamp(1.75rem, 1.15rem + 2.6vw, 3.25rem);
+  --text-pull--line-height: 1.12;
+  --text-pull--letter-spacing: -0.03em;
+
+  --text-prose: 1.0625rem;
+  --text-prose--line-height: 1.7;
 }
 
 html { scroll-behavior: smooth; }
