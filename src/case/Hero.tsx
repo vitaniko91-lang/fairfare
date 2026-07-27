@@ -13,7 +13,7 @@ export function Hero() {
       <div className="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
         <Label className="text-redline">Unsolicited redesign · 2026</Label>
 
-        <h1 className="font-display-wide mt-7 max-w-[15ch] text-display text-balance text-noir">
+        <h1 className="font-display font-bold mt-7 max-w-[15ch] text-display text-balance text-noir">
           An honest booking flow that still sells.
         </h1>
 

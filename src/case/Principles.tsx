@@ -34,7 +34,7 @@ export function Principles() {
     <Section id="principles" className="bg-noir">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <Label className="text-bone/75">Principles</Label>
-        <h2 className="font-display-wide mt-5 max-w-[18ch] text-h2 text-balance text-bone">
+        <h2 className="font-display font-bold mt-5 max-w-[18ch] text-h2 text-balance text-bone">
           Five rules I designed against.
         </h2>
 

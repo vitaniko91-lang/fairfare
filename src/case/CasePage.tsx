@@ -11,7 +11,7 @@ export function CasePage() {
     <div className="case-root min-h-screen">
       <header className="border-b border-hair">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-          <Link to="/" className="font-display-wide text-lg tracking-tight text-noir">
+          <Link to="/" className="font-display font-bold text-lg tracking-tight text-noir">
             FAIRFARE
           </Link>
           <Link

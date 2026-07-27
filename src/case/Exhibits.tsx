@@ -203,7 +203,7 @@ export function Exhibits() {
   return (
     <Section id="exhibits" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
       <Label className="text-redline">The evidence</Label>
-      <h2 className="font-display-wide mt-5 max-w-[16ch] text-h2 text-balance text-noir">
+      <h2 className="font-display font-bold mt-5 max-w-[16ch] text-h2 text-balance text-noir">
         Six patterns, each with its own name.
       </h2>
       <P className="mt-6">

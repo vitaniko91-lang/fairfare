@@ -13,7 +13,7 @@ export function Business() {
   return (
     <Section id="business" className="border-y border-hair bg-white/60">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <h2 className="font-display-wide max-w-[20ch] text-h2 text-balance text-noir">
+        <h2 className="font-display font-bold max-w-[20ch] text-h2 text-balance text-noir">
           Nothing was removed from the business.
         </h2>
 

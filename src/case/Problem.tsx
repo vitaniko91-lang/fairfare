@@ -3,7 +3,7 @@ import { P, Section } from './primitives'
 export function Problem() {
   return (
     <Section id="problem" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <h2 className="font-display-wide max-w-[17ch] text-h2 text-balance text-noir">
+      <h2 className="font-display font-bold max-w-[17ch] text-h2 text-balance text-noir">
         Dark patterns are a loan against trust.
       </h2>
 
@@ -25,7 +25,7 @@ export function Problem() {
       <figure className="mt-12 mb-12 max-w-3xl md:mt-14 md:mb-14">
         <span aria-hidden="true" className="block h-0.5 w-14 bg-redline" />
         <blockquote className="mt-6">
-          <p className="font-display-wide text-pull text-balance text-noir">
+          <p className="font-display font-bold text-pull text-balance text-noir">
             Can you remove the manipulation and keep the revenue?
           </p>
         </blockquote>

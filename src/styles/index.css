@@ -1,5 +1,5 @@
 @import '@fontsource-variable/instrument-sans';
-@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/familjen-grotesk';
 @import '@fontsource/ibm-plex-mono/400.css';
 @import '@fontsource/ibm-plex-mono/500.css';
 @import 'tailwindcss';
@@ -35,7 +35,7 @@
   --color-redline: #d92b04;    /* the annotation red — 4.7:1 on bone */
   --color-hair: #e4e2de;       /* hairlines */
 
-  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-display: 'Familjen Grotesk Variable', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   /* Display sizes, clamped so they never fall below readable or overshoot. */
@@ -73,12 +73,4 @@ body { @apply bg-paper text-body font-sans antialiased; }
 @utility case-root {
   background-color: var(--color-bone);
   color: var(--color-graphite);
-}
-
-/* Archivo carries a width axis; the display face is the expanded cut. Set as a
-   utility so the axis value lives in one place instead of on every heading. */
-@utility font-display-wide {
-  font-family: var(--font-display);
-  font-stretch: 118%;
-  font-weight: 800;
 }
