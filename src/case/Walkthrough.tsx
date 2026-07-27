@@ -1,11 +1,14 @@
 import type { ReactNode } from 'react'
 import { Eyebrow, P, Section } from './primitives'
 
-type Step = { n: string; title: string; refs?: string; body: ReactNode }
+type Step = { n: string; title: string; refs?: string; body: ReactNode; img: string; alt: string }
 
 const STEPS: Step[] = [
   {
     n: '01',
+    img: '1-search',
+    alt:
+      'The FAIRFARE search screen: from, to, date and passengers, with the promise that the price on the next screen is the price you pay.',
     title: 'Search',
     refs: 'Principle 01',
     body: (
@@ -17,6 +20,9 @@ const STEPS: Step[] = [
   },
   {
     n: '02',
+    img: '2-flights-fare',
+    alt:
+      'The fare step: Basic, Regular and Plus as three equal columns with full perk lists, Regular selected, and the running total already showing 57.60 euros.',
     title: 'Flights & fare',
     refs: 'Fixes 04 and 05 · Principles 02, 04',
     body: (
@@ -29,6 +35,9 @@ const STEPS: Step[] = [
   },
   {
     n: '03',
+    img: '3-seats',
+    alt:
+      'The seats screen with no seats chosen: the filled yellow button is Skip for free seats at check-in, and Continue is the quiet outline button.',
     title: 'Seats',
     refs: 'Principles 03, 04',
     body: (
@@ -43,6 +52,9 @@ const STEPS: Step[] = [
   },
   {
     n: '04',
+    img: '4-extras',
+    alt:
+      'The extras screen: five options, none pre-ticked, with the 10kg cabin bag marked as already included in the chosen fare.',
     title: 'Extras',
     refs: 'Principle 03',
     body: (
@@ -57,6 +69,9 @@ const STEPS: Step[] = [
   },
   {
     n: '05',
+    img: '5-pay',
+    alt:
+      'Guest checkout: passenger name and email only, a clearly labelled demo card field, and the itemized total unchanged at 70.60 euros.',
     title: 'Pay',
     refs: 'Principles 01, 05',
     body: (
@@ -69,6 +84,9 @@ const STEPS: Step[] = [
   },
   {
     n: '06',
+    img: '6-confirmed',
+    alt:
+      'The confirmation screen listing route, date, flight, passenger, fare and seat, with the total paid matching the running total exactly.',
     title: 'Confirmed',
     body: (
       <P>
@@ -105,12 +123,17 @@ export function Walkthrough() {
               )}
             </div>
 
-            {/* Placeholder — a later QA pass captures the real prototype screens. */}
-            <div className="flex aspect-video items-center justify-center rounded-xl bg-line px-6 text-center">
-              <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-body">
-                Prototype screenshot — {step.title}
-              </span>
-            </div>
+            <figure className="overflow-hidden rounded-xl border border-line bg-white">
+              <img
+                src={`walkthrough/${step.img}.webp`}
+                alt={step.alt}
+                width={1568}
+                height={760}
+                loading="lazy"
+                decoding="async"
+                className="block h-auto w-full"
+              />
+            </figure>
           </li>
         ))}
       </ol>
