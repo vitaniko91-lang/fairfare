@@ -11,9 +11,11 @@ export function FareMatrix({ basicCents, value, onChange }: {
       {(Object.keys(FARES) as FareTier[]).map(tier => {
         const f = FARES[tier]
         const selected = value === tier
+        // flex-col keeps the three headers on one line: a stretched <button> would
+        // otherwise centre its content vertically and stagger the tiers
         return (
           <button key={tier} type="button" role="radio" aria-checked={selected} onClick={() => onChange(tier)}
-            className={`rounded-xl border p-5 text-left transition-colors duration-200
+            className={`flex flex-col rounded-xl border p-5 text-left transition-colors duration-200
               ${selected ? 'border-navy bg-white ring-2 ring-navy' : 'border-line bg-white hover:border-navy/50'}`}>
             <div className="flex items-baseline justify-between">
               <span className="text-sm font-bold uppercase tracking-wider text-ink">{f.label}</span>

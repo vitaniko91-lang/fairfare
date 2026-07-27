@@ -35,7 +35,7 @@ export function FlightsPage() {
                 <span className="text-lg font-bold tabular-nums text-ink">
                   {hhmm(f.departISO)} — {hhmm(f.arriveISO)}
                 </span>
-                <span className="text-xs uppercase tracking-wider text-body">
+                <span className="text-xs tracking-wider text-body">
                   {Math.floor(f.durationMin / 60)}h {f.durationMin % 60}m · {f.id}
                 </span>
                 <span className="text-sm font-semibold text-ink">from {eur(f.basicCents)}</span>

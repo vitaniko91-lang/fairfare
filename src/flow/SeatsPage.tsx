@@ -9,6 +9,7 @@ export function SeatsPage() {
   const navigate = useNavigate()
   const [notice, setNotice] = useState('')
   const pax = state.search!.pax
+  const hasSeats = state.seats.length > 0
 
   const proceed = () => {
     if (state.seats.length !== pax) {
@@ -27,18 +28,21 @@ export function SeatsPage() {
       <h1 className="text-3xl font-extrabold tracking-tight text-ink">Pick seats — or don't.</h1>
       <p className="mt-2 max-w-lg text-sm">Skipping is free: you'll be assigned seats at check-in.
         Groups are usually seated near each other, but it isn't guaranteed.</p>
+      {/* Emphasis follows what the user has actually done, never what earns more:
+          picked nothing → skipping is the highlighted action, and vice versa. */}
       <div className="mt-6 flex flex-wrap gap-3">
-        <Button variant="ghost" onClick={() => { dispatch({ type: 'CLEAR_SEATS' }); navigate('/book/extras') }}>
+        <Button variant={hasSeats ? 'ghost' : 'primary'}
+          onClick={() => { dispatch({ type: 'CLEAR_SEATS' }); navigate('/book/extras') }}>
           Skip — free seats at check-in
         </Button>
-        <Button variant="primary" onClick={proceed}>
+        <Button variant={hasSeats ? 'primary' : 'ghost'} onClick={proceed}>
           Continue with {state.seats.length}/{pax} seats
         </Button>
       </div>
       <p aria-live="polite" className="mt-3 min-h-5 text-xs text-err">{notice}</p>
       <div className="mt-6 overflow-x-auto">
         <SeatMap flightId={state.flightId!} tier={state.tier!} selected={state.seats}
-          onToggle={id => dispatch({ type: 'TOGGLE_SEAT', seatId: id })} />
+          onToggle={id => { setNotice(''); dispatch({ type: 'TOGGLE_SEAT', seatId: id }) }} />
       </div>
     </section>
   )

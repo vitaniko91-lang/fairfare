@@ -8,9 +8,12 @@ const COLS = ['A', 'B', 'C', 'D', 'E', 'F']
 // one representative seat per zone, so the legend can quote a real price
 const SAMPLE_ROW: Record<SeatZone, string> = { front: '2A', exit: '16A', standard: '20A' }
 
+// available seats carry their zone tint; taken seats are a distinctly darker solid
+// so a free standard seat is never mistaken for an occupied one
 const swatch: Record<SeatZone, string> = {
-  front: 'bg-navy/20', exit: 'bg-ok/20', standard: 'bg-line',
+  front: 'bg-navy/25', exit: 'bg-ok/25', standard: 'bg-line',
 }
+const TAKEN = 'bg-ink/30'
 
 export function SeatMap({ flightId, tier, selected, onToggle }: {
   flightId: string; tier: FareTier; selected: string[]; onToggle: (id: string) => void
@@ -33,7 +36,7 @@ export function SeatMap({ flightId, tier, selected, onToggle }: {
           </li>
         ))}
         <li>
-          <span aria-hidden className="mr-1.5 inline-block h-3 w-3 rounded-sm bg-ink/10 align-middle" />
+          <span aria-hidden className={`mr-1.5 inline-block h-3 w-3 rounded-sm align-middle ${TAKEN}`} />
           Already taken
         </li>
       </ul>
@@ -49,10 +52,10 @@ export function SeatMap({ flightId, tier, selected, onToggle }: {
                 aria-pressed={isSel}
                 aria-label={`Seat ${id}, ${zone}, ${eur(seatCents(id, tier))}${isTaken ? ', taken' : ''}`}
                 className={`h-8 w-8 rounded-sm text-[0.625rem] font-semibold transition-colors duration-200
-                  ${isTaken ? 'cursor-not-allowed bg-ink/10 text-ink/30'
+                  ${isTaken ? `cursor-not-allowed ${TAKEN} text-ink/45`
                     : isSel ? 'bg-navy text-white'
-                    : zone === 'front' ? 'bg-navy/20 text-ink hover:bg-navy/40'
-                    : zone === 'exit' ? 'bg-ok/20 text-ink hover:bg-ok/40'
+                    : zone === 'front' ? 'bg-navy/25 text-ink hover:bg-navy/45'
+                    : zone === 'exit' ? 'bg-ok/25 text-ink hover:bg-ok/45'
                     : 'bg-line text-ink hover:bg-navy/30'}`}>
                 {id}
               </button>
