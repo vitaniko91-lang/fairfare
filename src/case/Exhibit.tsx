@@ -81,10 +81,10 @@ export function Exhibit({
 
       <blockquote
         cite="https://www.ryanair.com/gb/en"
-        className="mt-5 border-l-2 border-redline pl-5 sm:pl-6"
+        className="mt-5 max-w-[46ch] border-l-2 border-redline pl-5 sm:pl-6"
       >
         {quote.map(line => (
-          <p key={line} className="font-mono text-quote text-noir">{line}</p>
+          <p key={line} className="font-display text-quote font-medium text-noir">{line}</p>
         ))}
       </blockquote>
 

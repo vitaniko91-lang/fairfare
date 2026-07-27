@@ -26,8 +26,9 @@ export function Section({ id, className = '', children }: {
 }
 
 /**
- * Utility label. Monospace because on this page the mono face means "record" —
- * exhibit numbers, pattern names, captions. My own prose is never mono.
+ * Utility label. Monospace is reserved for the record-keeping layer — exhibit
+ * numbers, pattern names, captions, legends. Anything read as prose is set in
+ * the display or body face.
  */
 export function Label({ children, className = '' }: {
   children: ReactNode; className?: string
@@ -37,15 +38,16 @@ export function Label({ children, className = '' }: {
   )
 }
 
-/** Ryanair's own words, quoted inline in my prose — never blended into it. */
+/** Ryanair's own words, quoted inline in my prose — never blended into it.
+ *  The quotation marks are in the content, so weight and colour are enough to
+ *  separate their voice from mine without switching typeface mid-sentence. */
 export function UiQuote({ children }: { children: ReactNode }) {
-  return <span className="font-mono text-[0.95em] text-noir">{children}</span>
+  return <span className="font-medium text-noir">{children}</span>
 }
 
 /**
- * Ryanair's own words as a block exhibit. Set in mono so quoted interface copy
- * reads as a transcript rather than as my writing. Straight quotes inside the
- * quotation; curly quotes everywhere else on the page.
+ * Ryanair's own words as a block exhibit. Straight quotes inside the quotation;
+ * curly quotes everywhere else on the page.
  */
 export function UiQuoteBlock({ lines }: { lines: string[] }) {
   return (
@@ -54,7 +56,7 @@ export function UiQuoteBlock({ lines }: { lines: string[] }) {
       className="border-l-2 border-redline pl-5 sm:pl-6"
     >
       {lines.map(line => (
-        <p key={line} className="font-mono text-quote text-noir">{line}</p>
+        <p key={line} className="font-display text-quote font-medium text-noir">{line}</p>
       ))}
     </blockquote>
   )
