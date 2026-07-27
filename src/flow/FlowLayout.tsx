@@ -4,8 +4,9 @@ import { Stepper } from '../components/Stepper'
 import { RunningTotal } from '../components/RunningTotal'
 import { Disclaimer } from '../components/Disclaimer'
 
+// '/book/done' maps past the last step so every step reads as complete and none as current.
 const stepIndex: Record<string, number> = {
-  '/book': 0, '/book/flights': 1, '/book/seats': 2, '/book/extras': 3, '/book/pay': 4, '/book/done': 4,
+  '/book': 0, '/book/flights': 1, '/book/seats': 2, '/book/extras': 3, '/book/pay': 4, '/book/done': 5,
 }
 
 export function FlowLayout() {
