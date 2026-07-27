@@ -26,6 +26,19 @@ describe('generateFlights', () => {
       expect(f.id).toMatch(/^FR\d{4}$/)
     })
   })
+  it('puts schedules on a 5-minute grid and avoids round-hour block times', () => {
+    for (const a of AIRPORTS.slice(0, 6)) for (const b of AIRPORTS.slice(0, 6)) {
+      if (a.code === b.code) continue
+      const fl = generateFlights(a.code, b.code, '2026-09-16')
+      fl.forEach(f => {
+        expect(new Date(f.departISO).getUTCMinutes() % 5).toBe(0)
+        expect(f.durationMin % 5).toBe(0)
+        // "2h 0m" reads as placeholder data; real published block times are never round
+        expect(f.durationMin % 60).not.toBe(0)
+        expect(f.durationMin).toBeLessThanOrEqual(240)
+      })
+    }
+  })
   it('emits unique ids — the React layer keys on them', () => {
     // STN→WMI on 2026-09-28 collides if ids are drawn without a dedupe pass
     const ids = generateFlights('STN', 'WMI', '2026-09-28').map(f => f.id)
