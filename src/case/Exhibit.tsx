@@ -35,7 +35,7 @@ function Marker({ c, i }: { c: Callout; i: number }) {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute z-10 flex size-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-redline font-mono text-[0.625rem] font-medium text-bone ring-2 ring-bone sm:size-[1.375rem] sm:text-[0.6875rem]"
+      className="pointer-events-none absolute z-10 flex size-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-redline font-mono text-[0.625rem] text-bone ring-2 ring-bone sm:size-[1.375rem] sm:text-[0.6875rem]"
       style={{ left: `${c.x}%`, top: `${c.y}%` }}
     >
       {i + 1}
@@ -110,7 +110,7 @@ export function Exhibit({
             <ol className="mt-2.5 space-y-1">
               {before.callouts.map((c, i) => (
                 <li key={c.text} className="flex gap-2 font-mono text-[0.6875rem] leading-snug text-graphite">
-                  <span className="shrink-0 font-medium text-redline">{i + 1}</span>
+                  <span className="shrink-0 text-redline">{i + 1}</span>
                   {c.text}
                 </li>
               ))}
