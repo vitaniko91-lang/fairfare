@@ -16,6 +16,7 @@
   --color-sun: #f5c518;        /* yellow — scarce marker: primary CTA + running total */
   --color-paper: #f7f8fb;      /* light base */
   --color-line: #e3e7ef;       /* borders */
+  --color-muted: #6e7688;      /* de-emphasised text — 4.6:1 on white, still AA */
   --color-ok: #1b7a4f;
   --color-err: #c4314b;
 

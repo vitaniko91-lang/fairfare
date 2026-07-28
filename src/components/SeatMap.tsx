@@ -52,7 +52,7 @@ export function SeatMap({ flightId, tier, selected, onToggle }: {
                 aria-pressed={isSel}
                 aria-label={`Seat ${id}, ${zone}, ${eur(seatCents(id, tier))}${isTaken ? ', taken' : ''}`}
                 className={`h-8 w-8 rounded-sm text-[0.625rem] font-semibold transition-colors duration-200
-                  ${isTaken ? `cursor-not-allowed ${TAKEN} text-ink/45`
+                  ${isTaken ? `cursor-not-allowed ${TAKEN} text-muted`
                     : isSel ? 'bg-navy text-white'
                     : zone === 'front' ? 'bg-navy/25 text-ink hover:bg-navy/45'
                     : zone === 'exit' ? 'bg-ok/25 text-ink hover:bg-ok/45'
@@ -61,7 +61,7 @@ export function SeatMap({ flightId, tier, selected, onToggle }: {
               </button>
             )
             return ci === 2
-              ? [cell, <span key={`${row}-aisle`} aria-hidden className="w-6 text-center text-[0.625rem] leading-8 text-body/40">{row}</span>]
+              ? [cell, <span key={`${row}-aisle`} aria-hidden className="w-6 text-center text-[0.625rem] leading-8 text-muted">{row}</span>]
               : [cell]
           }),
         )}
