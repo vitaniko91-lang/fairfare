@@ -3,6 +3,7 @@ import { Hero } from './Hero'
 import { Problem } from './Problem'
 import { Exhibits } from './Exhibits'
 import { Principles } from './Principles'
+import { Payoff } from './Payoff'
 import { Business } from './Business'
 import { Colophon } from './Colophon'
 
@@ -28,6 +29,7 @@ export function CasePage() {
         <Problem />
         <Exhibits />
         <Principles />
+        <Payoff />
         <Business />
         <Colophon />
       </main>
